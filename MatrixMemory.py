@@ -24,4 +24,5 @@ class Game:
         enld = list()
         for r in range(0, self.rows):
             for c in range(0, self.cols):
-
+                if (r <= self.rows and c <= self.cols):
+                    enld.append({(r,c):True})
