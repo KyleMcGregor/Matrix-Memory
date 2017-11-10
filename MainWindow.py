@@ -5,7 +5,6 @@ from PyQt5.QtGui import QColor, QFont, QPainter
 from PyQt5.QtCore import (pyqtSignal, QPoint, Qt, QSize, QRectF, QTimer)
 from random import randint
 
-
 class Board(QGraphicsItem):
     BoundingRect = QRectF(0, 0, 300, 300)
     def __init__(self):
@@ -16,11 +15,14 @@ class Board(QGraphicsItem):
         self.timer.start(1000/33)
         self.colors = [QColor('red'), QColor('green'), QColor('blue')]
 
+    def timerEvent(self):
+        pass
+
     def boundingRect(self):
         return Board.BoundingRect
 
+
     def paint(self, painter: QPainter, option, widget):
-        painter.setBrush(self.color)
         for r in range(0, 6):
             for c in range(0, 6):
                 painter.drawRect(50*r, 50*c,50, 50)
@@ -28,6 +30,7 @@ class Board(QGraphicsItem):
 
     def isUnderMouse(self):
         self.color = QColor(40, 55, 210)
+
 
     def mousePressEvent(self, event: 'QGraphicsSceneMouseEvent'):
         if event.button() == Qt.LeftButton:
