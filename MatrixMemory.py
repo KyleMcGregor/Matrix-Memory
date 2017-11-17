@@ -26,3 +26,12 @@ class Game:
             for c in range(0, self.cols):
                 if (r <= self.rows and c <= self.cols):
                     enld.append({(r,c):True})
+
+
+    def __delslice__(self, i, j):
+        pass
+
+    def __getitem__(self, item):
+        pass
+
+    def __
